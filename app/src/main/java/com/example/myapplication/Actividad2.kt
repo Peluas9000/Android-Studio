@@ -2,10 +2,10 @@ package com.example.myapplication
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class Actividad2 : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -13,10 +13,15 @@ class Actividad2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.actividad2_xml)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        // 1️⃣ Localizamos el TextView
+        val text = findViewById<TextView>(R.id.textsaludo)
+        //el getter
+        val mensajeRecibido = intent.getStringExtra("Mensaje")
+
+        //el setter de la variable recibido del getter
+        text.text="$mensajeRecibido"
+
+
     }
 }

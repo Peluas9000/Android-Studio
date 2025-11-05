@@ -2,6 +2,7 @@ package com.example.myapplication
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,26 +18,20 @@ class Actividad1 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val edit=findViewById<EditText>(R.id.editFrase)
+        val boton=findViewById<Button>(R.id.saludo_button)
 
-        val boton=findViewById<Button>(R.id.button)
         boton.setOnClickListener {
             val intent= Intent(this, Actividad2::class.java)
+           //este es la f(X) que hace que el putExtra lea el mensaje
+            intent.putExtra("Mensaje",edit.text.toString())
             startActivity(intent)
+
         }
 
     }
 
 
-    override fun onDestroy() {
-        super.onDestroy()
-        val ejemplo= Intent(this, Actividad2::class.java)
-        startActivity(ejemplo)
-    }
-
-
-    override fun onStart() {
-        super.onStart()
-    }
 
 
 
