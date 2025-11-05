@@ -34,6 +34,11 @@ class Actividad1 : AppCompatActivity() {
     }
 
 
+    override fun onStart() {
+        super.onStart()
+    }
+
+
 
 
 
